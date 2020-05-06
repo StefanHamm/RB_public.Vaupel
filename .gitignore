@@ -1,4 +1,5 @@
-
+$ git rm obj
+$ git rm bin
 RB_Test/
 bin
 obj
