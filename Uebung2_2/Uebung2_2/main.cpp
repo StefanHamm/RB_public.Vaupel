@@ -37,13 +37,9 @@ while(true){
         if((touch==SensorTouch_clicked)&&(statebefore==SensorTouch_released)){
             Timespressed++;
             statebefore=SensorTouch_clicked;
-
-        }else if((touch==SensorTouch_released)&&(statebefore==SensorTouch_clicked)){
-        statebefore=SensorTouch_released;
-        }
-
+            }
+        statebefore=touch;
         endtime=GetSysTime();
-
             Delay(10);
     }
     NNXT_LCD_DisplayStringAtLine(0,"Stop   ");

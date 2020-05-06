@@ -5,12 +5,12 @@ void detektiereObjekt(uint8_t *dist){
     sensor_error_t err;
 
     char distStr[20];
-    again:
+
     err = US_GetDistance(Port_0,dist);
     if (err!=sensor_error_NoError){
         NNXT_LCD_DisplayStringAtLine(0, "Sensor Error!!!!   ");
         Delay(20);
-        goto again;
+
     }
     sprintf(distStr,"Entfernung:%u    ",*dist);
         NNXT_LCD_DisplayStringAtLine(0,distStr);
