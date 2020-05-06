@@ -1,4 +1,4 @@
 
 RB_Test/
-bin/
-obj/
+bin
+obj
