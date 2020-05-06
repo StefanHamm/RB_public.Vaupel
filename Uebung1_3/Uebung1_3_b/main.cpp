@@ -30,20 +30,16 @@ uint8_t abstand=0;
 
 while(1){
 detektiereObjekt(&abstand);
-        while(abstand>30){
-                detektiereObjekt(&abstand);
+        if(abstand>30){
                 Motor_Drive(Port_A,Motor_dir_forward,100);
                 Motor_Drive(Port_B,Motor_dir_forward,100);
                 Delay(20);
-    }
-        while(abstand<30){
-                detektiereObjekt(&abstand);
+    }else{
                 Motor_Drive(Port_A,Motor_dir_backward,50);
                 Motor_Drive(Port_B,Motor_dir_forward,50);
                 Delay(20);
 
-
-        }
+}
 
         Delay(20);
 

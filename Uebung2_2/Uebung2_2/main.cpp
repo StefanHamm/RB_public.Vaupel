@@ -13,14 +13,19 @@ void Timer(){
     NNXT_LCD_DisplayStringAtLine(0,"GO   ");
     Delay(50);
 }
-
+void init(){
+ for(int i=0;i<6;i++)   {
+ NNXT_LCD_DisplayStringAtLine(i,"                                ");
+ Delay(20);
+ }
+}
 int main(){
-
+init();
 SensorConfig(Port_0, SensorTouch);
 sensor_touch_clicked_t touch;
 SensorConfig(Port_0, SensorTouch);
 float Timespressed=0;
-char Ergebnis[20];
+char Ergebnis[20],clicks[20];
 sensor_touch_clicked_t statebefore=SensorTouch_released;
 
 while(true){
@@ -36,9 +41,10 @@ while(true){
         }else if((touch==SensorTouch_released)&&(statebefore==SensorTouch_clicked)){
         statebefore=SensorTouch_released;
         }
-        Delay(10);
+
         endtime=GetSysTime();
-        printf("%ld \n",endtime);
+
+            Delay(10);
     }
     NNXT_LCD_DisplayStringAtLine(0,"Stop   ");
     Delay(1000);
@@ -47,6 +53,7 @@ while(true){
     sprintf(Ergebnis,"%.2f HZ",Timespressed);
     NNXT_LCD_DisplayStringAtLine(3,Ergebnis);
     Delay (3000);
+    Timespressed=0;
 
 }
     return 0;
