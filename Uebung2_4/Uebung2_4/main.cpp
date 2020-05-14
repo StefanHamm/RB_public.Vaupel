@@ -9,11 +9,11 @@ while(true){
         Touch_Clicked(Port_0, &touch);
 
         if((touch==SensorTouch_clicked)&&(statebefore==SensorTouch_released)){
-            statebefore=SensorTouch_clicked;
+            
               Rclick=1;
             }
 
-        statebefore=SensorTouch_released;
+        statebefore=touch;
 
         Delay(100);
 }
@@ -27,10 +27,10 @@ while(true){
 
         Touch_Clicked(Port_1, &touch);
         if((touch==SensorTouch_clicked)&&(statebefore==SensorTouch_released)){
-            statebefore=SensorTouch_clicked;
+            
             Lclick=1;
         }
-        statebefore=SensorTouch_released;
+        statebefore=touch;
 
         Delay(100);
 
@@ -45,8 +45,8 @@ void Task3(){
 while(1){
       if(Rclick){
         switch(Richtung){
-    case Motor_dir_forward:Richtung=Motor_dir_backward;NNXT_LCD_DisplayStringAtLine(0,"R¸ckw‰rts ");break;
-    case Motor_dir_backward:Richtung=Motor_dir_forward;NNXT_LCD_DisplayStringAtLine(0,"Vorw‰rts ");break;
+    case Motor_dir_forward:Richtung=Motor_dir_backward;NNXT_LCD_DisplayStringAtLine(0,"R√ºckw√§rts ");break;
+    case Motor_dir_backward:Richtung=Motor_dir_forward;NNXT_LCD_DisplayStringAtLine(0,"Vorw√§rts ");break;
     default:break;
         }
         Rclick=0;
@@ -66,7 +66,7 @@ while(1){
 }
 }
 int main(){
-    NNXT_LCD_DisplayStringAtLine(0,"Vorw‰rts ");
+    NNXT_LCD_DisplayStringAtLine(0,"Vorw√§rts ");
     SensorConfig(Port_0,SensorTouch);
     SensorConfig(Port_1,SensorTouch);
     MotorPortInit(Port_A);
