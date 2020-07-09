@@ -9,7 +9,7 @@ while(true){
         Touch_Clicked(Port_0, &touch);
 
         if((touch==SensorTouch_clicked)&&(statebefore==SensorTouch_released)){
-            
+       
               Rclick=1;
             }
 
@@ -27,7 +27,6 @@ while(true){
 
         Touch_Clicked(Port_1, &touch);
         if((touch==SensorTouch_clicked)&&(statebefore==SensorTouch_released)){
-            
             Lclick=1;
         }
         statebefore=touch;
